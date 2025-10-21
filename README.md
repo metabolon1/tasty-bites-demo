@@ -1,2 +1,7 @@
 # tasty-bites-demo
-Report and code related to my DataCamp, Data Scientist certification test project.
+This repo contains files from the final project in my professional-level Data Scientist certification exam through DataCamp.
+
+My certificate can be found at https://www.datacamp.com/certificate/DS0026726467240
+
+## Files in this repo
+- 
