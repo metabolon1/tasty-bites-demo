@@ -11,7 +11,7 @@ I was presented with a dataset of recipe information, including which ones were 
 ## Key Findings
 Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in Model Training and Evaluation section below).
 
-Winning model: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
+**Winning model**: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
 - This model is easy to understand, implement, and and tweak as needed by the Product team.
 - I recommend displaying recipes from each of the five aforementioned categories in approximately equal proportions, perhaps on a rotation.
 - Performance should be monitored using both 30- and 90-day moving averages of precision.
