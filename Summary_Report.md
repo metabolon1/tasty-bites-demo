@@ -32,7 +32,7 @@ I performed the following validation tasks:
 
 After validation, only two candidate predictors remained: `category` appeared to be highly informative with respect to recipe popularity, while `servings` did not.
 
-<img src="/Images/recipe_counts_by_category_colored_traffic.png" width="500"/>
+<img src="/Images/recipe_counts_by_category_colored_traffic.png" width="400"/> <img src="/Images/servings_by_traffic_boxplots.png" width="400"/>
 
 ## Model Training and Evaluation
 
