@@ -9,7 +9,7 @@ The Product Manager wants us to **correctly predict popular recipes 80% of the t
 I was presented with a dataset of recipe information, including which ones were popular. I determined this to be a classification problem. I used the dataset to develop models and used 80% precision as the threshold for evaluating model performance.
 
 ## Key Findings
-- Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in[below](##"Model Training and Evaluation")).
+- Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in Model Training and Evaluation section below).
 - Winning model: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
 - This model is easy to understand, implement, and and tweak as needed by the Product team.
 - I recommend displaying recipes from each of the five aforementioned categories in approximately equal proportions, perhaps on a rotation.
@@ -42,9 +42,11 @@ I used an 80/20 split to generate a training and testing dataset. I trained two 
 
 The criterion I used for model evaluation was whether the lower bound of the one-sided 95% Wilson confidence interval of precision was greater than or equal to 80% for the test dataset. I chose this criterion to ensure a 95% chance of meeting the KPI target. While both models had similar confidence intervals for precison, only the baseline model strictly met the KPI criterion.
 
-<img src="precision_LB95CI_80pct.png" width="500"/>
+<img src="/Images/precision_LB95CI_80pct.png" width="500"/>
 
-This failure of the comparison model is attributed to a low classification threshold rather than to the inclusion of the servings variable. Had I set the classification threshold a little higher, I suspect that the comparison model would have also met the KPI target. `servings` had a negligible affect on model characteristics, introducing a small amount of noise but otherwise not affecting predicitve ability much.
+This failure of the comparison model is attributed to a low classification threshold rather than to the inclusion of the servings variable. Had I set the classification threshold a little higher, I suspect the comparison model would have also met the KPI target. `servings` had a negligible affect on model characteristics, introducing a small amount of noise but otherwise not affecting predicitve ability much.
+
+<img src="/Images/boxplots_logistic_prob_by_category.png" width="500"/>
 
 As would be expected, the model with slightly lower precision (i.e., comparison model) had slightly higher recall. In other words, because it was less picky, it was able to identify more of the popular recipes at the expense of also misidentifying more unpopular recipes as popular.
 
