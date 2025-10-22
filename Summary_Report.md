@@ -1,15 +1,15 @@
 # Summary Report - Predicting Tasty Bites Web Traffic
-This is the final project for my professional-level Data Scientist certification exam through DataCamp. It consists of a fictitious business problem. 
+This is the final project for my professional-level Data Scientist certification exam through DataCamp. It consists of a fictitious business problem. I was awarded the certificate, which can be viewed [here](https://www.datacamp.com/certificate/DS0026726467240).
 
 ## Project Overview and Goals
 The home page for Tasty Bites, a fictious company, displays a different recipe every day. The product manager has observed that certain recipes substantially boost traffic to their website. Higher traffic leads to more subscriptions, which is beneficial for the company.
 
-The Product Manager wants us to correctly predict popular recipes 80% of the time. In statistical terms, this equates to building a model with 80% precision. Thus, our KPI is model precision.
+The Product Manager wants us to **correctly predict popular recipes 80% of the time**. In statistical terms, this equates to building a model with **80% precision**. Thus, our KPI is model precision.
 
-I was presented with a dataset of recipe information, including which ones were popular. I determined this to be a classification problem. I used the dataset to develop models, and used 80% precision as the threshold for evaluating model performance.
+I was presented with a dataset of recipe information, including which ones were popular. I determined this to be a classification problem. I used the dataset to develop models and used 80% precision as the threshold for evaluating model performance.
 
 ## Key Findings
-- Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target.
+- Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in[below](##"Model Training and Evaluation")).
 - Winning model: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
 - This model is easy to understand, implement, and and tweak as needed by the Product team.
 - I recommend displaying recipes from each of the five aforementioned categories in approximately equal proportions, perhaps on a rotation.
@@ -48,12 +48,12 @@ This failure of the comparison model is attributed to a low classification thres
 
 As would be expected, the model with slightly lower precision (i.e., comparison model) had slightly higher recall. In other words, because it was less picky, it was able to identify more of the popular recipes at the expense of also misidentifying more unpopular recipes as popular.
 
-<img src="recall_95CI.png" width="500"/>
+<img src="/Images/recall_95CI.png" width="500"/>
 
 To improve the odds of displaying popular recipes at least 80% of the time, the product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. To start, the mix across categories should be even (perhaps on a rotation). 
 
 We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the product team should consider removing the less popular categories from among the list of five.
 
-<img src="moving_avgs_demo_no_model.png" alt="Example of 30DMA/90DMA BEFORE applying model (DEMO ONLY)" width="400"/> <img src="moving_avgs_demo_with_model.png" alt="Example of moving averages AFTER applying model (DEMO ONLY)" width="400"/>
+<img src="/Images/moving_avgs_demo_no_model.png" alt="Example of 30DMA/90DMA BEFORE applying model (DEMO ONLY)" width="400"/> <img src="/Images/moving_avgs_demo_with_model.png" alt="Example of moving averages AFTER applying model (DEMO ONLY)" width="400"/>
 
 If this strategy also fails to meet the KPI, or if more recipe variety is desired, then we will need a greater variety of predictor variables, such as accurate nutritional data, prep time, and cost. This should allow the data science team to better identify popular recipes, especially in the less popular categories, thus meeting desired precision while improving recall.
