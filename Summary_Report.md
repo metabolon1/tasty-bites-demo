@@ -9,8 +9,9 @@ The Product Manager wants us to **correctly predict popular recipes 80% of the t
 I was presented with a dataset of recipe information, including which ones were popular. I determined this to be a classification problem. I used the dataset to develop models and used 80% precision as the threshold for evaluating model performance.
 
 ## Key Findings
-- Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in Model Training and Evaluation section below).
-- Winning model: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
+Two different models (decision tree and logistic regression) were evaluated head-to-head, primarily on the basis of their ability to reliably meet the 80% precision target. (reliability based on confidence intervals; more details in Model Training and Evaluation section below).
+
+Winning model: a one-node decision tree, which was able to reliably predict popular recipes at least 80% of the time by selecting only recipes from certain categories.
 - This model is easy to understand, implement, and and tweak as needed by the Product team.
 - I recommend displaying recipes from each of the five aforementioned categories in approximately equal proportions, perhaps on a rotation.
 - Performance should be monitored using both 30- and 90-day moving averages of precision.
@@ -25,7 +26,7 @@ The sample dataset consisted of 947 recipes and 8 variables:
 
 I performed the following validation tasks:
 - verified that `recipe` identifiers were unique, with no missing values.
-- discovered that using the values in `calories`, `carbohydrate`, `sugar`, and `protein` derive non-sugar carbohydrates (g) and fat (g) content yielded negative values, which is physically possible. Thus, I determined these variables to be invalid and did not use them for model development.
+- discovered that using the values in `calories`, `carbohydrate`, `sugar`, and `protein` to calculate non-sugar carbohydrates (g) and fat (g) content yielded negative values, which is physically possible. Thus, I determined these four variables to be invalid and **did not use them for model development**.
 - cleaned up the `category` variable, consolidating two chicken categories into one and converting to a factor.
 - cleaned up the `servings` variable and converted to numeric.
 - converted `high_traffic`, the target variable, into a logical for ease of calculation.
@@ -51,6 +52,8 @@ This failure of the comparison model is attributed to a low classification thres
 As would be expected, the model with slightly lower precision (i.e., comparison model) had slightly higher recall. In other words, because it was less picky, it was able to identify more of the popular recipes at the expense of also misidentifying more unpopular recipes as popular.
 
 <img src="/Images/recall_95CI.png" width="500"/>
+
+## Recommendations
 
 To improve the odds of displaying popular recipes at least 80% of the time, the product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. To start, the mix across categories should be even (perhaps on a rotation). 
 
