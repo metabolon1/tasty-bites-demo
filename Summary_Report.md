@@ -30,7 +30,7 @@ I performed the following validation tasks:
 - cleaned up the `servings` variable and converted to numeric.
 - converted `high_traffic`, the target variable, into a logical for ease of calculation.
 
-After validation, only two candidate predictors remained: `category` appeared to be highly informative with respect to recipe popularity, while `servings` did not.
+After validation, only two candidate predictors remained: `category` appeared to be highly informative with respect to recipe popularity (i.e., traffic level), while `servings` did not.
 
 <img src="/Images/recipe_counts_by_category_colored_traffic.png" width="400"/> <img src="/Images/servings_by_traffic_boxplots.png" width="400"/>
 
@@ -42,14 +42,18 @@ I used an 80/20 split to generate a training and testing dataset. I trained two 
 
 The criterion I used for model evaluation was whether the lower bound of the one-sided 95% Wilson confidence interval of precision was greater than or equal to 80% for the test dataset. I chose this criterion to ensure a 95% chance of meeting the KPI target. While both models had similar confidence intervals for precison, only the baseline model strictly met the KPI criterion.
 
+<img src="precision_LB95CI_80pct.png" width="500"/>
 
 This failure of the comparison model is attributed to a low classification threshold rather than to the inclusion of the servings variable. Had I set the classification threshold a little higher, I suspect that the comparison model would have also met the KPI target. `servings` had a negligible affect on model characteristics, introducing a small amount of noise but otherwise not affecting predicitve ability much.
 
 As would be expected, the model with slightly lower precision (i.e., comparison model) had slightly higher recall. In other words, because it was less picky, it was able to identify more of the popular recipes at the expense of also misidentifying more unpopular recipes as popular.
 
+<img src="recall_95CI.png" width="500"/>
 
 To improve the odds of displaying popular recipes at least 80% of the time, the product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. To start, the mix across categories should be even (perhaps on a rotation). 
 
 We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the product team should consider removing the less popular categories from among the list of five.
+
+<img src="moving_avgs_demo_no_model.png" alt="Example of 30DMA/90DMA BEFORE applying model (DEMO ONLY)" width="400"/> <img src="moving_avgs_demo_with_model.png" alt="Example of moving averages AFTER applying model (DEMO ONLY)" width="400"/>
 
 If this strategy also fails to meet the KPI, or if more recipe variety is desired, then we will need a greater variety of predictor variables, such as accurate nutritional data, prep time, and cost. This should allow the data science team to better identify popular recipes, especially in the less popular categories, thus meeting desired precision while improving recall.
