@@ -2,7 +2,7 @@
 This is the final project for my professional-level Data Scientist certification exam through DataCamp. It consists of a fictitious business problem. I was awarded the certificate, which can be viewed [here](https://www.datacamp.com/certificate/DS0026726467240).
 
 ## Project Overview and Goals
-The home page for Tasty Bites, a fictious company, displays a different recipe every day. The product manager has observed that certain recipes substantially boost traffic to their website. Higher traffic leads to more subscriptions, which is beneficial for the company.
+The home page for Tasty Bites, a fictious company, displays a different recipe every day. The Product Manager has observed that certain recipes substantially boost traffic to their website. Higher traffic leads to more subscriptions, which is beneficial for the company.
 
 The Product Manager wants us to **correctly predict popular recipes 80% of the time**. In statistical terms, this equates to building a model with **80% precision**. Thus, our KPI is model precision.
 
@@ -51,9 +51,9 @@ This failure of the comparison model is attributed to a low classification thres
 
 ## Recommendations
 
-To improve the odds of displaying popular recipes at least 80% of the time, the product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. To start, the mix across categories should be even (perhaps on a rotation). 
+To improve the odds of displaying popular recipes at least 80% of the time, the Product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. Though both models performed similarly, the decision tree is easier to understand, implement, and tweak as desired. To start, the mix across categories should be even (perhaps on a rotation). 
 
-We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the product team should consider removing the less popular categories from among the list of five. NOTE: the graphs below are for demonstration purposes only and are NOT part of model evaluation.
+We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the Product team should consider removing the less popular categories from among the list of five. NOTE: the graphs below are for demonstration purposes only and are NOT part of model evaluation.
 
 <img src="/Images/moving_avgs_demo_no_model.png" alt="Example of 30DMA/90DMA BEFORE applying model (DEMO ONLY)" width="400"/> <img src="/Images/moving_avgs_demo_with_model.png" alt="Example of moving averages AFTER applying model (DEMO ONLY)" width="400"/>
 
