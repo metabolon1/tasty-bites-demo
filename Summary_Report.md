@@ -49,15 +49,11 @@ This failure of the comparison model is attributed to a low classification thres
 
 <img src="/Images/boxplots_logistic_prob_by_category.png" width="500"/>
 
-As would be expected, the model with slightly lower precision (i.e., comparison model) had slightly higher recall. In other words, because it was less picky, it was able to identify more of the popular recipes at the expense of also misidentifying more unpopular recipes as popular.
-
-<img src="/Images/recall_95CI.png" width="500"/>
-
 ## Recommendations
 
 To improve the odds of displaying popular recipes at least 80% of the time, the product team should employ the 1-node decision tree model, displaying only recipes from the following five categories (ranked by popularity, high to low): Vegetable, Potato, Pork, Meat, and One Dish Meal. To start, the mix across categories should be even (perhaps on a rotation). 
 
-We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the product team should consider removing the less popular categories from among the list of five.
+We should monitor the 30- and 90-day moving averages of the proportion of popular recipes displayed. If both moving averages dip below 80%, the product team should consider removing the less popular categories from among the list of five. NOTE: the graphs below are for demonstration purposes only and are NOT part of model evaluation.
 
 <img src="/Images/moving_avgs_demo_no_model.png" alt="Example of 30DMA/90DMA BEFORE applying model (DEMO ONLY)" width="400"/> <img src="/Images/moving_avgs_demo_with_model.png" alt="Example of moving averages AFTER applying model (DEMO ONLY)" width="400"/>
 
