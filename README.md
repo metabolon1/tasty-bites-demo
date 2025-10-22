@@ -8,3 +8,6 @@ My certificate can be found at https://www.datacamp.com/certificate/DS0026726467
 - Full_Report.pdf: the above file, printed as a PDF.
 - Summary_Report.md: an abridged version of the full report.
 - Images\: a directory containing figures used in Summary_Report.md.
+
+## Note about dataset
+The fictitious dataset used for this project is not included in this repo, because it is proprietary to DataCamp. However, descriptions of the dataset can be found in the report files.
